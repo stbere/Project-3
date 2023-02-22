@@ -484,28 +484,33 @@ popup.document.title = "Recorded!!";
   <div id="rss-feed">
     <ul id="feed-list">
       <head>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		
-        <script> 
-          $(document).ready(function() {
-            $.ajax({
-              url: "https://rss.app/feeds/MTR9pEhpM8FxiSjv.xml", 
-              dataType: "xml",
-              success: function(data) {
-                var $xml = $(data);
-                var items = [];
-                $xml.find("item").each(function() {
-                  var $this = $(this);
-                  var title = $this.find("title").text();
-                  var link = $this.find("link").text();
-				  <!--I would like to add code here to include the Twitter profile pic..still working on it..-->
-                  items.push("<li class='feed-item'><a href='" + link + "' class='feed-item-content'>" + title + "</a></li>");
-                });
-                $("#feed-list").html(items.join(""));
-              }
-            });
-          });
-        </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script> 
+  $(document).ready(function() {
+    $.ajax({
+      url: "https://rss.app/feeds/VdDJXKqfR0SsHjaq.xml", 
+      dataType: "xml",
+      success: function(data) {
+        var $xml = $(data);
+        var items = [];
+        $xml.find("item").each(function() {
+          var $this = $(this);
+          var title = $this.find("title").text();
+          var link = $this.find("link").text();
+          var imgSrc = $this.find("media\\:content, content").first().attr("url");
+          var imgHtml = '';
+          if (typeof imgSrc !== 'undefined') {
+              imgHtml = '<img src="' + imgSrc + '" class="feed-item-image" width="500">';
+          }
+          items.push("<li class='feed-item'><a href='" + link + "' class='feed-item-content'>" + imgHtml + '<br>' + "<div class='feed-item-text'>" + title + "</div></a></li>");
+        });
+        $("#feed-list").html(items.join(""));
+      }
+    });
+  });
+</script>
+
       </head>
     </ul>
   </div>

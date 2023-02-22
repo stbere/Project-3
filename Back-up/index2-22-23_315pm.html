@@ -8,7 +8,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="style.css">
-	<!--Yahoo finance script source using Highcharts-->
+
 	<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
 
 </head>
@@ -84,7 +84,7 @@
 
         <!-- When we load all the data, we create the chart-->
         if (Object.keys(data).length == symbols.length) {
-          var labels = Object.keys(timeSeries).slice(0, 126);
+          var labels = Object.keys(timeSeries).slice(0, 126).reverse();
 
           <!-- More beautiful chart creation, this time using Chart.js-->
           var ctx = document.getElementById('myChart').getContext('2d');
@@ -95,7 +95,7 @@
               datasets: symbols.map(function(symbol) {
                 return {
                   label: symbol,
-                  data: data[symbol],
+                  data: data[symbol].reverse(),
                   borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', 1)',
                   borderWidth: 1
                 };
@@ -130,14 +130,14 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <!-- Create a div element to hold the chart -->
-<div id="chart"></div>
+<div id="chart" class="centered"></div>
 
 <script>
   // Define the stocks to display
   const stocks = ['MSFT', 'AAPL', 'GOOG', 'HOOD', 'COIN'];
 
   // Define the start and end dates
-  const startDate = '2022-01-01';
+  const startDate = '2022-09-01';
   const endDate = '2023-02-21';
 
   // Create an array of promises to fetch the data for each stock
@@ -164,7 +164,7 @@
     .then(charts => {
       // Set the layout of the chart
       const layout = {
-        title: 'FY2022 Candlestick Chart',
+        title: '6 Month Data Trends for MSFT, AAPL, GOOD, HOOD & COIN stocks',
         xaxis: {
           title: 'Date',
           rangeslider: {visible: false},
@@ -228,7 +228,7 @@
             .then(data => {
                 if (data.status === 'ok') {
                     const stockData = data.items[0];
-                    const outputText = `News Article-<br> ${stockData.title}\nDescription<br> ${stockData.description}\n<br>Article Link:<br> <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
+                    const outputText = `News Article-<br> ${stockData.title}\n<br><br>Description-<br> ${stockData.description}\n<br><br>Article Link: <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
                     output.innerHTML = outputText;
                 } else {
                     output.innerHTML = `Error: ${data.message}`;
@@ -514,13 +514,13 @@ popup.document.title = "Recorded!!";
 <!--I forgot to add the style formatting for the div class, so this doesn't show up at the bottom yet. Can we even copyright this?-->
 	<div class="text-box">
  <p>Cited/Referenced Sources:</p>
-https://api.rss2json.com/ -
 https://finance.yahoo.com -
 https://code.jquery.com -
 https://rss.app/ -
 https://www.alphavantage.co/ -
 https://www.chartjs.org/ -
-http://levimcleod.pythonanywhere.com/
+http://levimcleod.pythonanywhere.com/ -
+https://api.polygon.io
 <p>Copyright &copy; 2023</p>
 </div>
 

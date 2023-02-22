@@ -91,8 +91,7 @@ body {
 .feed-item-content {
   display: block;
   color: #1da1f2;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -101,6 +100,8 @@ body {
 }
 .rss-feed {
   background-color: #f5f8fa;
+  max-width: 700px;
+  margin: 0 auto;
   border-radius: 10px;
   padding: 20px;
   margin-top: 50px;
@@ -111,6 +112,11 @@ body {
   padding: 10px;
   border-bottom: 1px solid grey;
   list-style-type: none;
+}
+
+.feed-item-img img {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .feed-item-content {
