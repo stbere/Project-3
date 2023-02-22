@@ -358,7 +358,7 @@ select {
             .then(data => {
                 if (data.status === 'ok') {
                     const stockData = data.items[0];
-                    const outputText = `News Article-<br> ${stockData.title}\nDescription<br> ${stockData.description}\n<br>Article Link:<br> <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
+                    const outputText = `Yahoo News Article-<br> ${stockData.title}\nDescription<br> ${stockData.description}\n<br>Article Link:<br> <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
                     output.innerHTML = outputText;
                 } else {
                     output.value = `Error: ${data.message}`;
