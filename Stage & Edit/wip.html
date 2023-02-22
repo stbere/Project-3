@@ -161,19 +161,21 @@
 #output {
   color: white;
   background-color: #333333;
-  border: 2px solid grey;
   text-align: left;
+  width: 350px;
   font-size: 16px;
   font-family: Arial, sans-serif;
   line-height: 1.5;
   font-weight: bold;
   padding: 10px;
+  overflow: auto;
 }
 
 #output a {
   color: #5bc0de;
   text-decoration: none;
   font-weight: bold;
+  height: 100px;
 }
 
 #myChart {
@@ -334,7 +336,7 @@ select {
 <!--here is the output container, needs work but gets results-->
 
 <div class="output-container">
-  <textarea id="output" rows="10" cols="50"></textarea>
+  <div id="output"rows="10" cols="50"></div>
 </div>
 
 <!--This is how the input & output containers work the data, API is from yahoo finance link in const url-->
@@ -348,7 +350,7 @@ select {
     submitButton.addEventListener('click', () => {
         const ticker = stockInput.value;
         if (!ticker) {
-            output.value = 'Please enter a stock symbol or ticker';
+            output.innerHTML = 'Please enter a stock symbol or ticker';
             return;
         }
         const url = `https://api.rss2json.com/v1/api.json?rss_url=https://finance.yahoo.com/rss/headline?s=${ticker}`;
@@ -358,22 +360,35 @@ select {
             .then(data => {
                 if (data.status === 'ok') {
                     const stockData = data.items[0];
-                    const outputText = `Title: ${stockData.title}\nDescription: ${stockData.description}\nLink: <a href="${stockData.link}" target="_blank">${stockData.link}</a>`;
+                    const outputText = `News Article-<br> ${stockData.title}\nDescription<br> ${stockData.description}\n<br>Article Link:<br> <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
                     output.innerHTML = outputText;
                 } else {
-                    output.value = `Error: ${data.message}`;
+                    output.innerHTML = `Error: ${data.message}`;
                 }
             })
             .catch(error => {
-                output.value = `Error: ${error}`;
+                output.innerHTML = `Error: ${error}`;
             });
     });
 </script>
+<div class="text-container">
+
+<p>.</p>
 <br>
+<p>.</p>
+<br>
+<p>.</p>
+<br>
+</div>
 <br>
 
 <!--This is Levi's Flask API from the URL below, uses a drop-down list from div class data-dropdown-->
 
+<div class="text-container">
+  <h4>&#128200; Continue exploring using the drop-down list &#128200;</h4>
+  <p>This is a Plotly function connected to a Flask API</p>
+  <p>It will show historical stock data, from recent years to FY2023</p>
+  
 <script src="https://cdn.plot.ly/plotly-latest.min.js" crossorigin="anonymous"></script>
     <div>
         <select id="data-dropdown">
@@ -391,6 +406,7 @@ select {
 	
 <br>
 <br>
+
 <!--Plotly chart code is below-->	
     <div id="chart1"></div>
     <div id="chart2"></div>
@@ -489,10 +505,11 @@ select {
 
 <br>
 
+<!--These buttons will link directly to Levi's flask API-->
 
 <br>
 <div class="text-container">
-  <h4><p>&#128200; Explore the Crypto/Stock Metadata provided by Levi's repository using the buttons below:</p></h4>
+  <h4>&#128200; Here is our Flask API metadata repository</h4><p>The information in these buttons were used to visualize the graphs above!</p>
   <br>
 <div class="button-container">
   <button onclick="window.open('http://levimcleod.pythonanywhere.com/')">Crypto Stocks Metadata Repository</button>

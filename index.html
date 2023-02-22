@@ -358,7 +358,7 @@ select {
             .then(data => {
                 if (data.status === 'ok') {
                     const stockData = data.items[0];
-                    const outputText = `Title: ${stockData.title}\nDescription: ${stockData.description}\nLink: <a href="${stockData.link}" target="_blank">${stockData.link}</a>`;
+                    const outputText = `News Article-<br> ${stockData.title}\nDescription<br> ${stockData.description}\n<br>Article Link:<br> <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
                     output.innerHTML = outputText;
                 } else {
                     output.value = `Error: ${data.message}`;
@@ -371,8 +371,22 @@ select {
 </script>
 <br>
 <br>
-
+<br>
+<br>
+<p>.</p>
+<br>
+<p>.</p>
+<br>
+<p>.</p>
+<br>
+</div>
+<br>
 <!--This is Levi's Flask API from the URL below, uses a drop-down list from div class data-dropdown-->
+
+<div class="text-container">
+  <h4>&#128200; Continue Exploring using the drop-down list &#128200;</h4>
+  <p>This is a Plotly function connected to a Flask API</p>
+  <p>It will show historical stock data, from recent years to FY2023:</p>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js" crossorigin="anonymous"></script>
     <div>
@@ -489,10 +503,11 @@ select {
 
 <br>
 
+<!--These buttons will link directly to Levi's flask API-->
 
 <br>
 <div class="text-container">
-  <h4><p>&#128200; Explore the Crypto/Stock Metadata provided by Levi's repository using the buttons below:</p></h4>
+  <h4>&#128200; Here is our Flask API metadata repository</h4><p>The information in these buttons were used to visualize the graphs above. Use it to create your own visualizations!</p>
   <br>
 <div class="button-container">
   <button onclick="window.open('http://levimcleod.pythonanywhere.com/')">Crypto Stocks Metadata Repository</button>
