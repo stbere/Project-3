@@ -369,6 +369,13 @@ select {
                 output.innerHTML = `Error: ${error}`;
             });
     });
+	
+	stockInput.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            submitButton.click();
+        }
+    });
 </script>
 <div class="text-container">
 

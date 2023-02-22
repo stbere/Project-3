@@ -370,6 +370,13 @@ select {
                 output.innerHTML = `Error: ${error}`;
             });
     });
+	
+	stockInput.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            submitButton.click();
+        }
+    });
 </script>
 <div class="text-container">
 
@@ -512,15 +519,15 @@ select {
   <h4>&#128200; Here is our Flask API metadata repository</h4><p>The information in these buttons were used to visualize the graphs above!</p>
   <br>
 <div class="button-container">
-  <button onclick="window.open('http://levimcleod.pythonanywhere.com/')">Crypto Stocks Metadata Repository</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_data_close')">DJI Data Close</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/sp_crypto_data')">SP Crypto Data</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin')">Bitcoin Data</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum')">Ethereum Data</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_vol')">DJI Volume</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/crypto_vol')">Crypto Volume</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin_vol')">Bitcoin Volume</button><br>
-  <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum_vol')">Ethereum Volume</button><br>
+  <button onclick="window.open('http://levimcleod.pythonanywhere.com/')">Crypto Stocks Metadata Repository</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_data_close')">DJI Data Close</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/sp_crypto_data')">SP Crypto Data</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin')">Bitcoin Data</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum')">Ethereum Data</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_vol')">DJI Volume</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/crypto_vol')">Crypto Volume</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin_vol')">Bitcoin Volume</button>
+  <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum_vol')">Ethereum Volume</button>
 </div>
 
 <br>
