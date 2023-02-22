@@ -64,8 +64,8 @@ body {
   }
 
   .image-container img {
-    width: 125px;
-    height: 85px;
+    width: 115px;
+    height: 75px;
     margin: 10px;
   }
 .rss-feed h2 {
@@ -197,4 +197,13 @@ select {
 #chart-container {
   height: 500px;
   overflow: auto;
+}
+
+#container {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #ccc;
 }

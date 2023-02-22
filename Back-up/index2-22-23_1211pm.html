@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <title>&#128200; G2 Stock Trakker &#128200;</title>
+  <head>
+    <title>&#128200; G2 Stock Trakker &#128200;</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--I wanted a specific font. The link below helped me. We can change it later-->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="style.css">
-	<!--Yahoo finance script source using Highcharts-->
-	<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-	<div class="header">TCC Data Analytics:
-	<p> Group 2 Stock Tracker</p></div>
-	<div class="half-page-line"></div>
-	<br>
-		<div class="text-container">
-		<h1><p>Welcome to Group 2's website! &#128200;</p></h1>
-		<p>Brought to you by Levi, Jared, Zac and Steve - Project 3</p>
-		</div>
+<div class="header">TCC Data Analytics:
+<p> Group 2 Stock Tracker</p></div>
+<div class="half-page-line"></div>
 <br>
-
+<div class="text-container">
+  <h1><p>Welcome to Group 2's website! &#128200;</p></h1>
+  <p>Brought to you by Levi, Jared, Zac and Steve - Project 3</p>
+</div>
+<br>
 <div class="image-container">
   <img src="https://gifdb.com/images/high/colorful-running-nyan-cat-52txj31jpil7u350.webp" alt="Nyan Cat">
   <img src="https://gifdb.com/images/high/colorful-running-nyan-cat-52txj31jpil7u350.webp" alt="Nyan Cat">
   <img src="https://gifdb.com/images/high/colorful-running-nyan-cat-52txj31jpil7u350.webp" alt="Nyan Cat">
   <img src="https://gifdb.com/images/high/colorful-running-nyan-cat-52txj31jpil7u350.webp" alt="Nyan Cat">
 </div>
-
 <div class="text-container">
 
 <p>.</p>
@@ -120,67 +117,6 @@
     xmlhttp.send();
   });
 </script>
-
-<!--Yahoo Finance API dashboar-->
-
-<br>
-<br>
-
-<!-- Load Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-<!-- Create a div element to hold the chart -->
-<div id="chart"></div>
-
-<script>
-  // Define the stocks to display
-  const stocks = ['MSFT', 'AAPL', 'GOOG', 'HOOD', 'COIN'];
-
-  // Define the start and end dates
-  const startDate = '2022-01-01';
-  const endDate = '2023-02-21';
-
-  // Create an array of promises to fetch the data for each stock
-  const promises = stocks.map(stock => {
-    const url = `https://api.polygon.io/v2/aggs/ticker/${stock}/range/1/day/${startDate}/${endDate}?unadjusted=true&sort=asc&limit=50000&apiKey=qM3kDySr_hIAE9pLaVM4F5x5LyXzLZTn`;
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => ({
-        name: stock,
-        x: data.results.map(d => new Date(d.t)),
-        open: data.results.map(d => d.o),
-        high: data.results.map(d => d.h),
-        low: data.results.map(d => d.l),
-        close: data.results.map(d => d.c),
-        type: 'candlestick',
-        increasing: {line: {color: 'green'}},
-        decreasing: {line: {color: 'red'}}
-      }))
-      .catch(error => console.error(error));
-  });
-
-  // Wait for all the promises to resolve and create the chart
-  Promise.all(promises)
-    .then(charts => {
-      // Set the layout of the chart
-      const layout = {
-        title: 'FY2022 Candlestick Chart',
-        xaxis: {
-          title: 'Date',
-          rangeslider: {visible: false},
-          type: 'date'
-        },
-        yaxis: {
-          title: 'Price',
-          fixedrange: false,
-        }
-      };
-      // Create the chart
-      Plotly.newPlot('chart', charts, layout);
-    })
-    .catch(error => console.error(error));
-</script>
-
 
 
 <br>
@@ -525,7 +461,7 @@ http://levimcleod.pythonanywhere.com/
 </div>
 
 <script>
-    console.log("Steve: Front-end HTML and API config. Levi: back-end Flask API/SQL. Hope you enjoy!");
+    console.log("This project was created by Levi McCleod, Zac Lau, Steve Reed and Jared Hubert. We hope you thoroughly enjoy the material we are presenting. Thank you!");
   </script>
  </body>
 </html>
