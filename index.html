@@ -391,12 +391,26 @@ select {
 	
 <br>
 <br>
-<!--Plotly charge code is below-->	
-    <div id="chart"></div>
+<!--Plotly chart code is below-->	
+    <div id="chart1"></div>
+    <div id="chart2"></div>
+    <div id="chart3"></div>
+    <div id="chart4"></div>
+    <div id="chart5"></div>
+    <div id="chart6"></div>
+    <div id="chart7"></div>
+	<div id="chart8"></div>
 
     <script>
         const dataDropdown = document.getElementById('data-dropdown');
-        const chartDiv = document.getElementById('chart');
+        const chartDiv1 = document.getElementById('chart1');
+        const chartDiv2 = document.getElementById('chart2');
+        const chartDiv3 = document.getElementById('chart3');
+        const chartDiv4 = document.getElementById('chart4');
+        const chartDiv5 = document.getElementById('chart5');
+        const chartDiv6 = document.getElementById('chart6');
+        const chartDiv7 = document.getElementById('chart7');
+		const chartDiv8 = document.getElementById('chart8');
 
         dataDropdown.addEventListener('change', () => {
             const selectedValue = dataDropdown.value;
@@ -407,22 +421,72 @@ select {
                 .then(data => {
                     const plotData = [{
                         x: data.map(d => d.date),
-                        y: data.map(d => d.close),
+                        y: data.map(d => d.close || d.Price || d.value),
                         type: 'scatter'
                     }];
 
-                    const plotLayout = {
-                        title: 'Stock Data',
-                        xaxis: { title: 'Date' },
-                        yaxis: { title: 'Price' }
-                    };
-
-                    Plotly.newPlot(chartDiv, plotData, plotLayout);
-                })
-                .catch(error => console.error(error));
+                    let plotLayout = {};
+                    if (selectedValue === 'https://levimcleod.pythonanywhere.com/dji_data_close') {
+                        plotLayout = {
+                            title: 'DJI Data Close',
+                            xaxis: { title: 'Date' },
+                            yaxis: { title: 'Price' }
+                        };
+                        Plotly.newPlot(chartDiv1, plotData, plotLayout);
+                    } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/dji_vol') {
+                        plotLayout = {
+                            title: 'DJI Volume',
+                            xaxis: { title: 'Date' },
+                            yaxis: { title: 'Volume' }
+                        };
+                        Plotly.newPlot(chartDiv2, plotData, plotLayout);
+                    } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/sp_crypto_data') {
+                        plotLayout = {
+                            title: 'SP Crypto Data',
+                            xaxis: { title: 'Date' },
+                            yaxis: { title: 'Value' }
+                        };
+                        Plotly.newPlot(chartDiv3, plotData, plotLayout);
+                    } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/bitcoin') {
+                        plotLayout = {
+                            title: 'Bitcoin',
+                            xaxis: { title: 'Date' },
+                            yaxis: { title: 'Price' }
+                        };
+                        Plotly.newPlot(chartDiv4, plotData, plotLayout);
+                    } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/ethereum') {
+                        plotLayout = {
+                            title: 'Ethereum',
+                            xaxis: { title: 'Date' },
+                            yaxis: { title: 'Price' }
+                        };
+                        Plotly.newPlot(chartDiv5, plotData, plotLayout);	
+					} else if (selectedValue === 'https://levimcleod.pythonanywhere.com/crypto_vol') {
+						plotLayout = {
+							title: 'Crypto Volume',
+							xaxis: { title: 'Date' },
+							yaxis: { title: 'Value' }
+					};
+						Plotly.newPlot(chartDiv6, plotData, plotLayout);
+					} else if (selectedValue === 'https://levimcleod.pythonanywhere.com/bitcoin_vol') {
+						plotLayout = {
+						title: 'Bitcoin Volume',
+						xaxis: { title: 'Date' },
+						yaxis: { title: 'Value' }
+					};
+						Plotly.newPlot(chartDiv7, plotData, plotLayout);
+					} else if (selectedValue === 'https://levimcleod.pythonanywhere.com/ethereum_vol') {
+						plotLayout = {
+						title: 'Ethereum Volume',
+						xaxis: { title: 'Date' },
+						yaxis: { title: 'Value' }
+					};
+						Plotly.newPlot(chartDiv8, plotData, plotLayout);
+					}
+				}).catch(error => console.error(error));
         });
     </script>
-	
+
 <br>
 
 
