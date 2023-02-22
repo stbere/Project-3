@@ -205,7 +205,12 @@ select {
   margin: 0 auto;
 }
 
-     </style>
+#chart-container {
+  height: 500px;
+  overflow: auto;
+}
+
+</style>
 </head>
 
 <body>
@@ -409,12 +414,17 @@ select {
             <option value="https://levimcleod.pythonanywhere.com/bitcoin_vol">Bitcoin Volume</option>
             <option value="https://levimcleod.pythonanywhere.com/ethereum_vol">Ethereum Volume</option>
         </select>
+		<br>
+		<br>
+	<button id="add-chart-btn">Add Chart</button>
+    <button id="remove-chart-btn">Remove Chart</button>
     </div>
 	
 <br>
 <br>
 
-<!--Plotly chart code is below-->	
+<!--Plotly chart code is below-->
+<div id="chart-container">	
     <div id="chart1"></div>
     <div id="chart2"></div>
     <div id="chart3"></div>
@@ -423,9 +433,12 @@ select {
     <div id="chart6"></div>
     <div id="chart7"></div>
 	<div id="chart8"></div>
+</div>
 
     <script>
         const dataDropdown = document.getElementById('data-dropdown');
+		const addChartBtn = document.getElementById('add-chart-btn');
+		const removeChartBtn = document.getElementById('remove-chart-btn');
         const chartDiv1 = document.getElementById('chart1');
         const chartDiv2 = document.getElementById('chart2');
         const chartDiv3 = document.getElementById('chart3');
@@ -438,6 +451,23 @@ select {
         dataDropdown.addEventListener('change', () => {
             const selectedValue = dataDropdown.value;
             const url = selectedValue;
+			
+			let numCharts = 0;
+				const chartDivs = [chartDiv1, chartDiv2, chartDiv3, chartDiv4, chartDiv5, chartDiv6, chartDiv7, chartDiv8];
+
+		addChartBtn.addEventListener('click', () => {
+			if (numCharts < chartDivs.length) {
+			chartDivs[numCharts].style.display = "block";
+			numCharts++;
+			}
+		});
+
+		removeChartBtn.addEventListener('click', () => {
+			if (numCharts > 0) {
+			numCharts--;
+			chartDivs[numCharts].style.display = "none";
+			}
+		});
 
             fetch(url)
                 .then(response => response.json())
