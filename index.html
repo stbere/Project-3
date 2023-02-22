@@ -334,7 +334,7 @@ select {
 <!--here is the output container, needs work but gets results-->
 
 <div class="output-container">
-  <textarea id="output" rows="10" cols="50"></textarea>
+  <div id="output"rows="10" cols="50"></div>
 </div>
 
 <!--This is how the input & output containers work the data, API is from yahoo finance link in const url-->
@@ -348,7 +348,7 @@ select {
     submitButton.addEventListener('click', () => {
         const ticker = stockInput.value;
         if (!ticker) {
-            output.value = 'Please enter a stock symbol or ticker';
+            output.innerHTML = 'Please enter a stock symbol or ticker';
             return;
         }
         const url = `https://api.rss2json.com/v1/api.json?rss_url=https://finance.yahoo.com/rss/headline?s=${ticker}`;
@@ -361,11 +361,11 @@ select {
                     const outputText = `News Article-<br> ${stockData.title}\nDescription<br> ${stockData.description}\n<br>Article Link:<br> <a href="${stockData.link}" target="_blank"><br>${stockData.link}</a>`;
                     output.innerHTML = outputText;
                 } else {
-                    output.value = `Error: ${data.message}`;
+                    output.innerHTML = `Error: ${data.message}`;
                 }
             })
             .catch(error => {
-                output.value = `Error: ${error}`;
+                output.innerHTML = `Error: ${error}`;
             });
     });
 </script>
