@@ -421,7 +421,7 @@ select {
                 .then(data => {
                     const plotData = [{
                         x: data.map(d => d.date),
-                        y: data.map(d => d.close || d.Price || d.value),
+                        y: data.map(d => d.close || d.price || d.value),
                         type: 'scatter'
                     }];
 
