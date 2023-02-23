@@ -9,12 +9,15 @@ body {
         color: white;
       }
 
+/** half page line to divide title and welcome text */
 .half-page-line {
   height: 1px;
   width: 50%;
   background-color: white;
   margin: 20px auto;
 }
+
+/** used for cited/reference sources at bottom of page */
 .text-box {
   bottom: 0;
 	left: 0;
@@ -26,6 +29,7 @@ body {
 	}
 }
 
+/**welcome text & formatting fpr welcome msg and nyan cats */
 .welcome-message {
   text-align: center;
   font-family: 'Dosis', sans-serif;
@@ -51,6 +55,8 @@ body {
         text-align: center;
         padding-top: 50px;
       }
+	  
+/** rss feed containing finance.yahoo news articles w/ pic previews, near bottom of page */	  
 .rss-feed {
   background-color: #f5f8fa;
   border-radius: 10px;
@@ -58,6 +64,8 @@ body {
   padding: 20px;
   margin-top: 20px;
 }
+
+/** format/styling used for images on page */
 .image-container {
     display: flex;
     justify-content: center;
@@ -68,6 +76,8 @@ body {
     height: 75px;
     margin: 10px;
   }
+  
+/** format/styling for text in rss feed */
 .rss-feed h2 {
   font-size: 48px;
   font-family: 'Newsreader', serif;
@@ -83,6 +93,7 @@ body {
   margin: 0 0 20px;
 }
 
+/** format/styling for rss feed images */
 .feed-item {
   margin-bottom: 20px;
   list-style: none;
@@ -98,6 +109,8 @@ body {
 .feed-item-content:hover {
   text-decoration: underline;
 }
+
+/** additional rss feed format/styling. may not even need anymore */
 .rss-feed {
   background-color: #f5f8fa;
   max-width: 700px;
@@ -108,26 +121,30 @@ body {
   box-shadow: 0 0 10px #222;
 }
 
+/** format/styling for first graph displaying alpha vantage data */
+.chart-canvas {
+  border: 1px solid #000000;
+}
+
+/** related to rss content */
 .feed-item {
   padding: 10px;
   border-bottom: 1px solid grey;
   list-style-type: none;
 }
-
 .feed-item-img img {
   max-width: 50px;
   max-height: 50px;
 }
-
 .feed-item-content {
   font-size: 1.2em;
 }
-
 .feed-item-date {
   font-size: 0.8em;
   color: white;
 }
 
+/** format/styling for stock ticker submit button, for finance.yahoo.com stock news*/
 .input-container {
   display: flex;
   flex-direction: row;
@@ -135,12 +152,12 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-
 .input-container input[type="text"],
 .input-container input[type="submit"] {
   margin-right: 10px;
 }
 
+/** grey output box for stock ticker submit button */
 .output-container {
   border: 1px solid grey;
   width: 350px;
@@ -152,7 +169,6 @@ body {
   margin: 0 auto;
   height: 200px;
 }
-
 #output {
   color: white;
   background-color: #333333;
@@ -165,7 +181,6 @@ body {
   padding: 10px;
   overflow: auto;
 }
-
 #output a {
   color: #5bc0de;
   text-decoration: none;
@@ -173,11 +188,13 @@ body {
   height: 100px;
 }
 
+/** chart.js formatting for alpha vantage graph */
 #myChart {
   width: 800px;
   height: 400px;
 }
 
+/** text container with specific format/styling used for various text on the webpage */
 .text-container {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -186,6 +203,7 @@ body {
   margin: 20px;
 }
 
+/** format/styling for pop-up image feeding from guestbook */
 .popup-img {
     max-width: 400px;
 }
@@ -195,6 +213,7 @@ select {
   display: block;
 }
 
+/** drop-down list to choose, chart and display Levi's flask API data */
 #data-dropdown {
   display: block;
   margin: 0 auto;
@@ -212,8 +231,7 @@ select {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 2px #ccc;
-}
-
+}/** style/formatting to center the Plotly/polygon.io api candlestick chart */
 .centered {
   display: flex;
   justify-content: center;
