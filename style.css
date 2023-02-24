@@ -190,7 +190,7 @@ body {
 
 /** chart.js formatting for alpha vantage graph */
 #myChart {
-  width: 800px;
+  width: 600px;
   height: 400px;
 }
 
@@ -231,9 +231,23 @@ select {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 2px #ccc;
+	
 }/** style/formatting to center the Plotly/polygon.io api candlestick chart */
 .centered {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .news-feed {
+    max-width: 100%;
+  }
+
+  .news-feed img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
 }

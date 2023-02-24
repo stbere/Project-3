@@ -238,3 +238,16 @@ select {
   justify-content: center;
   margin: 0 auto;
 }
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .news-feed {
+    max-width: 100%;
+  }
+
+  .news-feed img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+}
