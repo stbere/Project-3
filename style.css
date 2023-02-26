@@ -1,0 +1,253 @@
+body {
+        background-color: black;
+      }
+      .header {
+        text-align: center;
+        padding: 20px;
+        font-family: 'Libre Barcode 128 Text', cursive;
+        font-size: 86px;
+        color: white;
+      }
+
+/** half page line to divide title and welcome text */
+.half-page-line {
+  height: 1px;
+  width: 50%;
+  background-color: white;
+  margin: 20px auto;
+}
+
+/** used for cited/reference sources at bottom of page */
+.text-box {
+  bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 18px;
+	color: white;
+	text-align: left;
+	padding: 10px;
+	}
+}
+
+/**welcome text & formatting fpr welcome msg and nyan cats */
+.welcome-message {
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+        font-size: 24px;
+        color: white;
+        padding-top: 40px;
+      }
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+      .guestbook-form {
+        text-align: center;
+        padding-top: 50px;
+      }
+      .rss-feed {
+        text-align: center;
+        padding-top: 50px;
+      }
+	  
+/** rss feed containing finance.yahoo news articles w/ pic previews, near bottom of page */	  
+.rss-feed {
+  background-color: #f5f8fa;
+  border-radius: 10px;
+  color: black;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/** format/styling used for images on page */
+.image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-container img {
+    width: 115px;
+    height: 75px;
+    margin: 10px;
+  }
+  
+/** format/styling for text in rss feed */
+.rss-feed h2 {
+  font-size: 48px;
+  font-family: 'Newsreader', serif;
+  color: black;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.rss-feed h3 {
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+/** format/styling for rss feed images */
+.feed-item {
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.feed-item-content {
+  display: block;
+  color: #1da1f2;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.feed-item-content:hover {
+  text-decoration: underline;
+}
+
+/** additional rss feed format/styling. may not even need anymore */
+.rss-feed {
+  background-color: #f5f8fa;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px #222;
+}
+
+/** format/styling for first graph displaying alpha vantage data */
+.chart-canvas {
+  border: 1px solid #000000;
+}
+
+/** related to rss content */
+.feed-item {
+  padding: 10px;
+  border-bottom: 1px solid grey;
+  list-style-type: none;
+}
+.feed-item-img img {
+  max-width: 50px;
+  max-height: 50px;
+}
+.feed-item-content {
+  font-size: 1.2em;
+}
+.feed-item-date {
+  font-size: 0.8em;
+  color: white;
+}
+
+/** format/styling for stock ticker submit button, for finance.yahoo.com stock news*/
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.input-container input[type="text"],
+.input-container input[type="submit"] {
+  margin-right: 10px;
+}
+
+/** grey output box for stock ticker submit button */
+.output-container {
+  border: 1px solid grey;
+  width: 350px;
+  border-radius: 8px;
+  align-items: left
+  background-color: #333333;
+  padding: 5px;
+  display: flex;
+  margin: 0 auto;
+  height: 200px;
+}
+#output {
+  color: white;
+  background-color: #333333;
+  text-align: left;
+  width: 350px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: bold;
+  padding: 10px;
+  overflow: auto;
+}
+#output a {
+  color: #5bc0de;
+  text-decoration: none;
+  font-weight: bold;
+  height: 100px;
+}
+
+/** chart.js formatting for alpha vantage graph */
+#myChart {
+  width: 600px;
+  height: 400px;
+}
+
+/** text container with specific format/styling used for various text on the webpage */
+.text-container {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color: white;
+  margin: 20px;
+}
+
+/** format/styling for pop-up image feeding from guestbook */
+.popup-img {
+    max-width: 400px;
+}
+
+select {
+  margin: 0 auto;
+  display: block;
+}
+
+/** drop-down list to choose, chart and display Levi's flask API data */
+#data-dropdown {
+  display: block;
+  margin: 0 auto;
+}
+
+#chart-container {
+  height: 500px;
+  overflow: auto;
+}
+
+#container {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #ccc;
+	
+}/** style/formatting to center the Plotly/polygon.io api candlestick chart */
+.centered {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .news-feed {
+    max-width: 100%;
+  }
+
+  .news-feed img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+}
