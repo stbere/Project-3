@@ -15,16 +15,16 @@
 </head>
 
 <body>
-  <div class="header">TCC Data Analytics: Group 2
-    <p> Stock & Crypto Tracker</p>
+  <div class="header">TCC Data Analytics:
+    <p> Group 2 Stock Tracker</p>
   </div>
   <div class="half-page-line"></div>
   <br>
   <div class="text-container">
     <h1>
-      <p>Welcome to Group 2's project! &#128200;</p>
+      <p>Welcome to Group 2's website! &#128200;</p>
     </h1>
-    <p>Brought to you by Levi, Jared, Zac and Steve</p>
+    <p>Brought to you by Levi, Jared, Zac and Steve - Project 3</p>
   </div>
   <br>
 
@@ -48,9 +48,9 @@
 
   <div class="text-container">
     <h2>
-      <p>&#128640; Let's begin our analysis &#128640;</p>
+      <p>&#128640; Let's dive right in & begin our analysis &#128640;</p>
     </h2>
-    <p>We'll compare several cryptocurrencies & NYSE stocks...</p>
+    <p>We'll compare crypto vs. nyse stocks</p>
   </div>
 
   <br>
@@ -63,7 +63,7 @@
 
 <script>
   <!--Here I am defining an array of stock symbols-->
-  var symbols = ["MSFT", "AAPL", "GOOG", "COIN"];
+  var symbols = ["MSFT", "AAPL", "GOOG", "HOOD", "COIN"];
 
   <!--I am creating an object to hold the time series data for each stock symbol-->
   var data = {};
@@ -140,7 +140,7 @@
 
   <script>
   // Define the stocks to display
-  const stocks = ['MSFT', 'AAPL', 'GOOG', 'COIN'];
+  const stocks = ['MSFT', 'AAPL', 'GOOG', 'HOOD', 'COIN'];
 
     // Define the start and end dates
     const startDate = '2022-09-01';
@@ -170,7 +170,7 @@
       .then(charts => {
         // Set the layout of the chart
         const layout = {
-          title: '6 Month Historical Data for MSFT, AAPL, GOOG, & COIN',
+          title: '6 Month Data Trends for MSFT, AAPL, GOOG, HOOD & COIN prices',
           xaxis: {
             title: 'Date',
             rangeslider: { visible: false },
@@ -197,7 +197,7 @@
 
   <script type="text/javascript">
     // Define the crypto to display
-    const crypto_ticker = ['X:BTCUSD'];
+    const crypto_ticker = ['X:BTCUSD', 'X:ETHUSD', 'X:ADAUSD', 'X:DOGEUSD', 'X:AUCTIONUSD'];
 
     // Create an array of promises to fetch the data for each crypto
     const promises2 = crypto_ticker.map(crypto_tick => {
@@ -226,7 +226,7 @@
       .then(charts => {
         // Set the layout of the chart
         const layout = {
-          title: '6 Months Historical Data for Bitcoin',
+          title: '6 Mo Crypto Data Trends for BitCoin, Ethereum, Cardano, DogeCoin & Bounce Gov',
           xaxis: {
             title: 'Date',
             rangeslider: { visible: false },
@@ -326,44 +326,30 @@
 
   <div class="text-container">
     <h4>&#128200; Continue exploring using the drop-down list &#128200;</h4>
-    <p>Options include <u>performance</u> and <u>volatility</u> data from <strong>Dow Jones Industrial Average, S&P Cryptocurrency Largecap Index, Bitcoin, & Ethereum</strong>.</p>
+    <p>This is a Plotly function connected to a Flask API</p>
+    <p>It will show historical stock data, from recent years to FY2023</p>
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js" crossorigin="anonymous"></script>
     <div>
       <select id="data-dropdown">
-        <option value="">Select View</option>
-        <option value="https://levimcleod.pythonanywhere.com/dji_data_close">DJI Performance</option>
-        <option value="https://levimcleod.pythonanywhere.com/sp_crypto_data">S&P Crypto Largecap Performance</option>
-        <option value="https://levimcleod.pythonanywhere.com/bitcoin">Bitcoin Performance</option>
-        <option value="https://levimcleod.pythonanywhere.com/ethereum">Ethereum Performance</option>
-        <option value="https://levimcleod.pythonanywhere.com/dji_vol">DJI Volatility</option>
-        <option value="https://levimcleod.pythonanywhere.com/crypto_vol">S&P Crypto Largecap Volatility</option>
-        <option value="https://levimcleod.pythonanywhere.com/bitcoin_vol">Bitcoin Volatility</option>
-        <option value="https://levimcleod.pythonanywhere.com/ethereum_vol">Ethereum Volatility</option>
+        <option value="">Choose Data</option>
+        <option value="https://levimcleod.pythonanywhere.com/dji_data_close">DJI Data Close</option>
+        <option value="https://levimcleod.pythonanywhere.com/sp_crypto_data">SP Crypto Data</option>
+        <option value="https://levimcleod.pythonanywhere.com/bitcoin">Bitcoin Data</option>
+        <option value="https://levimcleod.pythonanywhere.com/ethereum">Ethereum Data</option>
+        <option value="https://levimcleod.pythonanywhere.com/dji_vol">DJI Volume</option>
+        <option value="https://levimcleod.pythonanywhere.com/crypto_vol">Crypto Volume</option>
+        <option value="https://levimcleod.pythonanywhere.com/bitcoin_vol">Bitcoin Volume</option>
+        <option value="https://levimcleod.pythonanywhere.com/ethereum_vol">Ethereum Volume</option>
       </select>
       <br>
       <br>
+      <button id="add-chart-btn">Add Chart</button>
+      <button id="remove-chart-btn">Remove Chart</button>
     </div>
 
     <br>
     <br>
-
-<div id="report" style="display:none;">
-  <p>Based on the data analysis conducted, it can be concluded that the performance and volatility of the Dow Jones Industrial Average (DJI) and the S&P Cryptocurrency Largecap Index are correlated to some extent. In terms of performance, both indices experienced significant growth in value in early 2020, but faced a sharp decline in September 2022. Additionally, the peak performance of both indices appears to have been correlated, with the DJI reaching its peak in December 2021 and the S&P in November 2021.</p>
-
-  <p>Regarding volatility, both indices showed a downward trend in volatility in 2018, but the DJI demonstrated an increase in volatility after September 2018, while the S&P Cryptocurrency Largecap Index continued to exhibit higher volatility than the DJI but with a continuous decrease in volatility from June 2017 to February 2023.</p>
-
-  <p>These observations may provide useful insights for investors seeking to make informed decisions about their portfolio, as the DJI and the S&P Cryptocurrency Largecap Index have shown different patterns of performance and volatility over the analyzed period, with some correlations between their peak performance and volatility trends.</p>
-</div>
-
-<button id="report-button">Show Insight Report</button>
-
-<script>
-  document.getElementById("report-button").addEventListener("click", function() {
-    document.getElementById("report").style.display = "block";
-  });
-</script>
-
 
     <!--Plotly chart code is below-->
     <div id="chart-container">
@@ -379,6 +365,8 @@
 
     <script>
       const dataDropdown = document.getElementById('data-dropdown');
+      const addChartBtn = document.getElementById('add-chart-btn');
+      const removeChartBtn = document.getElementById('remove-chart-btn');
       const chartDiv1 = document.getElementById('chart1');
       const chartDiv2 = document.getElementById('chart2');
       const chartDiv3 = document.getElementById('chart3');
@@ -395,362 +383,84 @@
         let numCharts = 0;
         const chartDivs = [chartDiv1, chartDiv2, chartDiv3, chartDiv4, chartDiv5, chartDiv6, chartDiv7, chartDiv8];
 
+        addChartBtn.addEventListener('click', () => {
+          if (numCharts < chartDivs.length) {
+            chartDivs[numCharts].style.display = "block";
+            numCharts++;
+          }
+        });
+
+        removeChartBtn.addEventListener('click', () => {
+          if (numCharts > 0) {
+            numCharts--;
+            chartDivs[numCharts].style.display = "none";
+          }
+        });
+
         fetch(url)
           .then(response => response.json())
           .then(data => {
             const plotData = [{
               x: data.map(d => d.date),
               y: data.map(d => d.close || d.price || d.value),
-              type: 'scatter',
-              marker: {
-                color: '#FFFFFF',
-                size: 8
-              }
+              type: 'scatter'
             }];
 
             let plotLayout = {};
             if (selectedValue === 'https://levimcleod.pythonanywhere.com/dji_data_close') {
               plotLayout = {
-                title: {
-                  text: 'DJI Performance',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'DJI Data Close',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Price' }
               };
               Plotly.newPlot(chartDiv1, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/dji_vol') {
               plotLayout = {
-                title: {
-                  text: 'DJI Volatility',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'DJI Volume',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Volume' }
               };
               Plotly.newPlot(chartDiv2, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/sp_crypto_data') {
               plotLayout = {
-                title: {
-                  text: 'S&P Cryptocurrency Largecap Performance',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'SP Crypto Data',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Value' }
               };
               Plotly.newPlot(chartDiv3, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/bitcoin') {
               plotLayout = {
-                title: {
-                  text: 'Bitcoin Performance',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'Bitcoin',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Price' }
               };
               Plotly.newPlot(chartDiv4, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/ethereum') {
               plotLayout = {
-                title: {
-                  text: 'Ethereum Performance',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'Ethereum',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Price' }
               };
               Plotly.newPlot(chartDiv5, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/crypto_vol') {
               plotLayout = {
-                title: {
-                  text: 'S&P Cryptocurrency Largecap Volatility',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'Crypto Volume',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Value' }
               };
               Plotly.newPlot(chartDiv6, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/bitcoin_vol') {
               plotLayout = {
-                title: {
-                  text: 'Bitcoin Volatility',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'Bitcoin Volume',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Value' }
               };
               Plotly.newPlot(chartDiv7, plotData, plotLayout);
             } else if (selectedValue === 'https://levimcleod.pythonanywhere.com/ethereum_vol') {
               plotLayout = {
-                title: {
-                  text: 'Ethereum Volatility',
-                  font: {
-                    color: '#FFFFFF'
-                  }
-                },
-                xaxis: {
-                  title: {
-                    text: 'Date',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                yaxis: {
-                  title: {
-                    text: 'Price',
-                    font: {
-                      color: '#FFFFFF'
-                    }
-                  },
-                  tickfont: {
-                    color: '#FFFFFF'
-                  },
-                  gridcolor: '#444444'
-                },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
-                hovermode: 'closest',
-                hoverlabel: {
-                  font: {
-                    color: '#FFFFFF'
-                  },
-                  bgcolor: '#444444'
-                }
+                title: 'Ethereum Volume',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Value' }
               };
               Plotly.newPlot(chartDiv8, plotData, plotLayout);
             }
@@ -770,14 +480,14 @@
       <div class="button-container">
         <button onclick="window.open('http://levimcleod.pythonanywhere.com/')">Crypto Stocks Metadata
           Repository</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_data_close')">DJI Performance</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/sp_crypto_data')">S&P Crypto Largecap Performance</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin')">Bitcoin Performance</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum')">Ethereum Performance</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_vol')">DJI Volatility</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/crypto_vol')">Crypto Volatility</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin_vol')">Bitcoin Volatility</button>
-        <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum_vol')">Ethereum Volatility</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_data_close')">DJI Data Close</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/sp_crypto_data')">SP Crypto Data</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin')">Bitcoin Data</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum')">Ethereum Data</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/dji_vol')">DJI Volume</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/crypto_vol')">Crypto Volume</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/bitcoin_vol')">Bitcoin Volume</button>
+        <button onclick="window.open('https://levimcleod.pythonanywhere.com/ethereum_vol')">Ethereum Volume</button>
       </div>
 
       <br>
