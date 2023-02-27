@@ -197,7 +197,7 @@
 
   <script type="text/javascript">
     // Define the crypto to display
-    const crypto_ticker = ['X:BTCUSD'];
+    const crypto_ticker = ['X:BTCUSD', 'X:ETHUSD', 'X:ADAUSD', 'X:DOGEUSD', 'X:AUCTIONUSD'];
 
     // Create an array of promises to fetch the data for each crypto
     const promises2 = crypto_ticker.map(crypto_tick => {
@@ -226,7 +226,7 @@
       .then(charts => {
         // Set the layout of the chart
         const layout = {
-          title: '6 Months Historical Data for Bitcoin',
+          title: '6 Mo Crypto Data Trends for BitCoin, Ethereum, Cardano, DogeCoin & Bounce Gov',
           xaxis: {
             title: 'Date',
             rangeslider: { visible: false },
