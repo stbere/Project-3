@@ -102,7 +102,7 @@ body {
 .feed-item-content {
   display: block;
   color: #1da1f2;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -113,7 +113,7 @@ body {
 /** additional rss feed format/styling. may not even need anymore */
 .rss-feed {
   background-color: #f5f8fa;
-  max-width: 575px;
+  max-width: 650px;
   margin: 0 auto;
   border-radius: 10px;
   padding: 20px;
