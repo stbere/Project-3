@@ -201,11 +201,10 @@ body {
 /** text container with specific format/styling used for various text on the webpage */
 .text-container {
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  text-align: center;
   color: white;
-  margin: 20px auto;
-  padding: 10px;
-  max-width: 600px; /* adjust as needed */
+  margin: 20px;
 }
 
 
