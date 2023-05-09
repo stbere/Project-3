@@ -102,7 +102,7 @@ body {
 .feed-item-content {
   display: block;
   color: #1da1f2;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -113,7 +113,7 @@ body {
 /** additional rss feed format/styling. may not even need anymore */
 .rss-feed {
   background-color: #f5f8fa;
-  max-width: 575px;
+  max-width: 700px;
   margin: 0 auto;
   border-radius: 10px;
   padding: 20px;
@@ -194,20 +194,14 @@ body {
   height: 400px;
 }
 
-.parent-container {
-  text-align: center;
-}
-
 /** text container with specific format/styling used for various text on the webpage */
 .text-container {
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  text-align: center;
   color: white;
-  margin: 20px auto;
-  padding: 10px;
-  max-width: 600px; /* adjust as needed */
+  margin: 20px;
 }
-
 
 /** format/styling for pop-up image feeding from guestbook */
 .popup-img {
@@ -229,13 +223,6 @@ select {
   height: 500px;
   overflow: auto;
 }
-
-@media only screen and (max-width: 600px) {
-  .navbar {
-    display: none;
-  }
-}
-
 
 #container {
     width: 800px;
@@ -263,11 +250,4 @@ select {
     height: auto;
     margin: 10px 0;
   }
-}
-
-
-/* Center align the iframe element */
-#iframe {
-	display: block;
-	margin: 0 auto;
 }
